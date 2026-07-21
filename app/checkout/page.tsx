@@ -23,7 +23,7 @@ export default function CheckoutPage() {
 
   return (
     <section className="max-w-5xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-2 gap-12">
-      {/* Left: form */}
+     
       <form onSubmit={handleSubmit} className="space-y-8">
         <div>
           <div className="flex items-center justify-between mb-2">
@@ -112,7 +112,7 @@ export default function CheckoutPage() {
         </Button>
       </form>
 
-      {/* Right: order summary */}
+     
       <div className="bg-[var(--color-surface)] rounded-lg p-6 h-fit transition hover:shadow-lg hover:-translate-y-1">
         <div className="space-y-4 mb-6">
           {items.map((item) => (

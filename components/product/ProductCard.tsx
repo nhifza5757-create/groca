@@ -26,7 +26,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   const hasHoverImage = Boolean(product.hoverImage);
 
   return (
-    // border-primary pe hover/tap dono -- active: mobile ke liye add kiya
+
     <div className="border border-gray-200 rounded-lg p-4 flex flex-col items-center text-center hover:border-[var(--color-primary)] active:border-[var(--color-primary)] transition-colors duration-300 relative w-full h-full mx-auto">
       {!product.inStock && (
         <span className="absolute top-2 left-2 bg-[var(--color-accent-red)] text-white text-[10px] font-semibold px-1.5 py-0.5 rounded z-10">
@@ -63,9 +63,6 @@ export default function ProductCard({ product }: ProductCardProps) {
             />
           )}
 
-          {/* Icons: desktop pe hover se dikhte hain, mobile pe hamesha visible
-              rahte hain (touch devices pe hover nahi hota, is liye
-              opacity-100 default + md:opacity-0 md:group-hover:opacity-100) */}
           <div className="absolute inset-0 flex items-center justify-center gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-10">
             <button
               type="button"

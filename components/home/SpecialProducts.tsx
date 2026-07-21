@@ -38,7 +38,7 @@ function SpecialProductCard({ product }: { product: (typeof products)[number] })
     : null;
 
   return (
-    // active: add kiya -- border ab mobile tap pe bhi green hoga
+ 
     <div className="group border border-gray-200 rounded-lg p-4 flex items-center gap-4 relative h-full hover:border-[var(--color-primary)] active:border-[var(--color-primary)] transition-colors duration-300 touch-manipulation">
       {(!product.inStock || (discountPercent && discountPercent > 0)) && (
         <span className="absolute top-3 left-3 bg-[var(--color-accent-red)] text-white text-[10px] font-semibold px-2 py-0.5 rounded z-10">
@@ -55,7 +55,6 @@ function SpecialProductCard({ product }: { product: (typeof products)[number] })
           className="object-contain"
         />
 
-        {/* Yahan bhi same icons -- mobile pe hamesha visible, desktop pe hover se */}
         <div className="absolute inset-0 flex items-center justify-center gap-1.5 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-10">
           <button
             type="button"

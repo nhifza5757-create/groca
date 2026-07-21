@@ -1,8 +1,5 @@
 @import "tailwindcss";
 
-/* Tailwind v4 changed the default border color from gray-200 to currentColor,
-   which made every plain `border` class render black/dark across the site.
-   This restores the old (lighter, expected) default globally. */
 @layer base {
   *,
   ::after,
@@ -17,7 +14,6 @@
   --background: #ffffff;
   --foreground: #171717;
 
-  /* Groca exact brand colors */
   --color-primary: #89c74a;
   --color-primary-dark: #6fa838;
   --color-primary-light: #DAE8CC;
@@ -54,7 +50,6 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-heading);
 }
 
-/* Gentle up-down floating animation for hero/promo images */
 @keyframes float {
   0%, 100% {
     transform: translateY(0px);

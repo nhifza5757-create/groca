@@ -22,9 +22,6 @@ export const LANGUAGES: LanguageOption[] = [
   { code: "fr", label: "French", nativeLabel: "Français" },
 ];
 
-// Yahan sirf demo/header ke liye chand keys hain.
-// Site ke baaki hisson mein translate karna ho to isi dictionary mein
-// naye keys add karte jao aur wahan t("yourKey") use karo.
 const translations: Record<string, Record<string, string>> = {
   home: { en: "Home", ar: "الرئيسية", de: "Startseite", nl: "Home", fr: "Accueil" },
   shop: { en: "Shop", ar: "المتجر", de: "Shop", nl: "Winkel", fr: "Boutique" },
@@ -78,7 +75,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     if (found) {
       setLanguageState(found);
       localStorage.setItem(STORAGE_KEY, code);
-      // Arabic RTL ke liye
+    
       document.documentElement.dir = code === "ar" ? "rtl" : "ltr";
     }
   };

@@ -14,7 +14,7 @@ export interface CurrencyOption {
   symbol: string;
   label: string;
   flagEmoji: string;
-  rate: number; // 1 USD = `rate` units of this currency (base = USD, since tumhare product prices $ mein hain)
+  rate: number; 
 }
 
 export const CURRENCIES: CurrencyOption[] = [
@@ -41,7 +41,6 @@ const STORAGE_KEY = "groca_currency";
 export function CurrencyProvider({ children }: { children: ReactNode }) {
   const [currency, setCurrencyState] = useState<CurrencyOption>(CURRENCIES[1]);
 
-  // load saved preference on mount
   useEffect(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
@@ -58,10 +57,9 @@ export function CurrencyProvider({ children }: { children: ReactNode }) {
     }
   };
 
-  // hamesha USD base price ko selected currency mein convert karega
+  
   const formatPrice = (usdAmount: number) => {
     const converted = usdAmount * currency.rate;
-    // PKR/INR jaise round-number currencies decimals ke bina, baaki 2 decimal
     const decimals = currency.code === "USD" || currency.code === "EUR" || currency.code === "GBP" ? 2 : 0;
     return `${currency.symbol}${converted.toLocaleString(undefined, {
       minimumFractionDigits: decimals,

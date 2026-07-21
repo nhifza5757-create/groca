@@ -5,7 +5,7 @@ export type Product = {
   price: number;
   oldPrice?: number;
   image: string;
-  hoverImage?: string; // optional 2nd photo — provide karein to hover pe image swap hogi
+  hoverImage?: string; 
   category: string;
   rating: number;
   reviews: number;

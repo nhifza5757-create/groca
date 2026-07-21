@@ -35,8 +35,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
       }
       return [...prev, { ...product, quantity: 1 }];
     });
-    // Groca (aur zyada tar grocery sites) ki tarah — add-to-cart pe drawer
-    // khud khul jata hai taake user ko turant confirmation mile.
+   
     setIsCartOpen(true);
   }
 

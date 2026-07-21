@@ -24,8 +24,6 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 const STORAGE_KEY = "groca_user";
 
-// Demo ke liye — real backend/database nahi hai, isliye "registered users"
-// list bhi localStorage mein hi rakhte hain taake login/register dono kaam karein.
 const USERS_KEY = "groca_registered_users";
 
 export function AuthProvider({ children }: { children: ReactNode }) {
@@ -37,7 +35,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       try {
         setUser(JSON.parse(saved));
       } catch {
-        // ignore corrupt data
+        
       }
     }
   }, []);

@@ -24,7 +24,6 @@ export default function CategoryBanners() {
           key={cat.name}
           className="group relative rounded-lg h-48 sm:h-56 overflow-hidden"
         >
-          {/* Background product photo, full-bleed */}
           <div className="absolute inset-0">
             <Image
               src={cat.image}
@@ -34,7 +33,6 @@ export default function CategoryBanners() {
             />
           </div>
 
-          {/* Colored panel — hover/tap pe left ki taraf expand hota hai */}
           <div
             className={`absolute inset-y-0 right-0 ${cat.bg} w-[42%] group-hover:w-[46%] group-active:w-[46%] rounded-l-full transition-all duration-300 ease-out flex items-center`}
           >

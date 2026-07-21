@@ -23,7 +23,6 @@ import { useCurrency, CURRENCIES } from "@/hooks/CurrencyContext";
 import { useLanguage, LANGUAGES, LanguageOption } from "@/hooks/LanguageContext";
 import { useAuth } from "@/hooks/AuthContext";
 
-// 2-letter country code (e.g. "PK") ko flag emoji mein convert karta hai
 function getFlagEmoji(countryCode: string) {
   if (!countryCode || countryCode.length !== 2) return "";
   return countryCode
@@ -152,8 +151,7 @@ export default function Header() {
           showNav ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        {/* Mobile par padding/gap tighter -- logo aur icons aaram se fit ho
-            jayein, overflow/wrap na ho chhoti screens par */}
+
         <div className="max-w-7xl mx-auto px-3 sm:px-4 py-3 sm:py-4 flex items-center justify-between gap-2 sm:gap-4">
           <Link href="/" className="shrink-0">
             <Image
@@ -210,7 +208,6 @@ export default function Header() {
             <Link href="/pages/contact-us" className="italic text-sm font-bold text-gray-800 hover:text-primary">{t("contactUs")}</Link>
           </nav>
 
-          {/* Right side icons -- mobile par gap kam kiya taake sab fit ho jayein */}
           <div className="flex items-center gap-2.5 sm:gap-4">
             <button type="button" onClick={() => setSearchOpen((p) => !p)} className="lg:hidden group p-1 -m-1" aria-label="Toggle search">
               <Search size={20} className="text-gray-700 group-hover:text-primary group-active:text-primary transition-colors" />
@@ -253,7 +250,6 @@ export default function Header() {
               {totalWishlist > 0 && (<span className="absolute -top-2 -right-2 bg-primary text-white text-xs rounded-full w-4 h-4 flex items-center justify-center">{totalWishlist}</span>)}
             </Link>
 
-            {/* Currency selector -- flag emoji ke sath, sirf md+ par visible */}
             <div className="relative hidden md:block" ref={currencyRef}>
               <button type="button" onClick={() => setCurrencyOpen((p) => !p)} className="flex items-center gap-1.5 text-sm text-gray-700 hover:text-primary">
                 <span>{getFlagEmoji(currency.country)}</span>
@@ -300,8 +296,6 @@ export default function Header() {
           </div>
         </div>
 
-        {/* Categories + Search row -- pill/rounded-full shape, mobile par bhi
-            padding thoda tight taake dono fields comfortably fit ho jayein */}
         <div className={`border-t bg-white ${searchOpen ? "block" : "hidden"} lg:block`}>
           <form onSubmit={handleSearchSubmit} className="max-w-7xl mx-auto px-3 sm:px-4 py-3 flex items-stretch gap-2 sm:gap-3">
             <div className="relative" ref={categoryRef}>
@@ -336,8 +330,6 @@ export default function Header() {
           </form>
         </div>
 
-        {/* Mobile menu overlay -- active/hover dono ke sath tap feedback
-            (touch devices "hover" reliably fire nahi karte, "active" karta hai) */}
         {mobileMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 right-0 bg-white z-40 border-t shadow-lg max-h-[80vh] overflow-y-auto">
             <nav className="flex flex-col py-2">

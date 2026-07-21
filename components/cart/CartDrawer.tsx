@@ -14,7 +14,7 @@ export default function CartDrawer() {
 
   return (
     <>
-      {/* Dark overlay behind the drawer */}
+     
       <div
         onClick={closeCart}
         className={`fixed inset-0 bg-black/50 z-40 transition-opacity duration-300 ${
@@ -22,7 +22,6 @@ export default function CartDrawer() {
         }`}
       />
 
-      {/* Slide-in panel */}
       <div
         className={`fixed top-0 right-0 h-full w-full max-w-sm bg-white z-50 shadow-xl flex flex-col transition-transform duration-300 ${
           isCartOpen ? "translate-x-0" : "translate-x-full"

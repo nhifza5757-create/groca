@@ -36,7 +36,7 @@ export default function CartPage() {
 
   return (
     <section className="max-w-4xl mx-auto px-6 py-16">
-      {/* Header */}
+    
       <div className="mb-8">
         <h1 className="text-3xl font-serif italic font-bold mb-1">Your cart</h1>
         <Link
@@ -47,7 +47,6 @@ export default function CartPage() {
         </Link>
       </div>
 
-      {/* Product table */}
       <div className="border-t border-b">
         <div className="hidden sm:grid grid-cols-[1fr_auto_auto] gap-4 py-3 text-xs uppercase text-gray-500 font-medium">
           <span>Product</span>
@@ -108,7 +107,7 @@ export default function CartPage() {
         ))}
       </div>
 
-      {/* Notes + subtotal */}
+     
       <div className="flex flex-col sm:flex-row justify-between gap-6 mt-6">
         <div className="flex-1">
           <label className="text-sm font-medium block mb-2">
@@ -136,7 +135,7 @@ export default function CartPage() {
         </div>
       </div>
 
-      {/* Suggestions */}
+     
       {suggestions.length > 0 && (
         <div className="mt-16">
           <h2 className="text-xl font-serif italic font-bold mb-6 text-center">

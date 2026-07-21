@@ -18,12 +18,8 @@ export default function Button({
     sm: "px-5 py-1.5 text-sm",
   };
 
-  // "rounded-full" se ab pill-shape button banta hai (jaisa real site mein hai)
   const baseStyles = `${sizeStyles[size]} rounded-full font-medium transition-colors duration-200`;
 
-  // Ab exact groca brand colors use ho rahe hain (globals.css se), generic
-  // Tailwind green-600 ki jagah — isse asli site ke shade se match karega.
-  // Hover pe primary button ab orange ho jata hai.
   const variants = {
     primary: "bg-[var(--color-primary)] text-white hover:bg-orange-600 active:bg-orange-600",
     outline:

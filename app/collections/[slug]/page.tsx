@@ -7,8 +7,6 @@ import { products } from "@/data/products";
 import ProductCard from "@/components/product/ProductCard";
 import { LayoutGrid, List, ChevronDown, ChevronUp } from "lucide-react";
 
-// Slug -> display name. Agar naya category add karein to yahan bhi entry
-// add kar dein, warna slug hi bhaunda naam ban jayega.
 const categoryNames: Record<string, string> = {
   cookies: "Cookies",
   eggs: "Eggs",
@@ -50,9 +48,7 @@ export default function CollectionDetailPage() {
     [categoryProducts]
   );
 
-  // "Product Type" -- poore catalog ke distinct categories, count ke sath.
-  // Real site jaisa: agar koi type check karein to woh current collection ki
-  // jagah us type ke saare products dikhata hai (Shopify ka standard behavior).
+  
   const typeOptions = useMemo(() => {
     const counts = new Map<string, number>();
     products.forEach((p) => counts.set(p.category, (counts.get(p.category) ?? 0) + 1));
@@ -63,10 +59,6 @@ export default function CollectionDetailPage() {
     }));
   }, []);
 
-  // Brand/Size -- product.brand aur product.weight abhi kisi bhi product mein
-  // set nahi hain, isliye yeh lists khaali aayengi jab tak aap products.ts
-  // mein yeh optional fields add karke values dete. Code already wired hai,
-  // data add karte hi automatically kaam karega.
   const brandOptions = useMemo(() => {
     const counts = new Map<string, number>();
     products.forEach((p) => {
@@ -89,11 +81,9 @@ export default function CollectionDetailPage() {
     setList(list.includes(value) ? list.filter((v) => v !== value) : [...list, value]);
   };
 
-  // Availability + price range + Product Type + Brand + Size + sort dropdown
-  // -- sab client-side apply hote hain.
+  
   const filtered = useMemo(() => {
-    // Agar Product Type checkboxes select ki hain to poore catalog se filter
-    // hota hai (jaise real site), warna sirf current collection (URL slug).
+    
     let list =
       selectedTypes.length > 0
         ? products.filter((p) => selectedTypes.includes(p.category))
@@ -139,7 +129,7 @@ export default function CollectionDetailPage() {
 
   return (
     <section>
-      {/* Green header banner + breadcrumb -- real site jaisa */}
+     
       <div className="bg-primary py-10 text-center">
         <h1 className="text-3xl font-bold text-white mb-2">Collection</h1>
         <p className="text-white/90 text-sm">
@@ -152,7 +142,7 @@ export default function CollectionDetailPage() {
       </div>
 
       <div className="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row gap-8">
-        {/* Sidebar filters */}
+      
         <aside className="w-full md:w-64 shrink-0 space-y-4">
           <FilterSection title="Availability">
             <label className="flex items-center gap-2 text-sm mb-2 cursor-pointer">
@@ -261,7 +251,7 @@ export default function CollectionDetailPage() {
           </FilterSection>
         </aside>
 
-        {/* Product listing */}
+      
         <div className="flex-1">
           <div className="flex flex-wrap items-center justify-between gap-3 bg-gray-50 px-4 py-3 rounded mb-6">
             <div className="flex gap-2">
@@ -321,7 +311,7 @@ export default function CollectionDetailPage() {
             </p>
           )}
 
-          {/* Pagination */}
+         
           {totalPages > 1 && (
             <div className="flex justify-center gap-2 mt-10">
               {Array.from({ length: totalPages }, (_, i) => i + 1).map(

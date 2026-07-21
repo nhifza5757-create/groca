@@ -43,9 +43,8 @@ export default function ContactUsPage() {
           />
         </div>
 
-        {/* Info Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-          {/* Phone */}
+          
           <div className="border border-gray-200 rounded-md p-8 h-56 flex flex-col justify-center transition-transform duration-300 hover:border-primary hover:shadow-md hover:-translate-y-0.5">
             <div className="w-10 h-10 bg-[var(--color-primary)] text-white flex items-center justify-center rounded mb-4">
               <Phone size={18} />
@@ -55,7 +54,6 @@ export default function ContactUsPage() {
             <p className="text-sm text-gray-500">Fax: 0000 - 123 - 456789</p>
           </div>
 
-          {/* Email */}
           <div className="border border-gray-200 rounded-md p-8 h-56 flex flex-col justify-center transition-transform duration-300 hover:border-primary hover:shadow-md hover:-translate-y-0.5">
             <div className="w-10 h-10 bg-[var(--color-primary)] text-white flex items-center justify-center rounded mb-4">
               <Mail size={18} />
@@ -65,7 +63,6 @@ export default function ContactUsPage() {
             <p className="text-sm text-gray-500">support@example.com</p>
           </div>
 
-          {/* Address */}
           <div className="border border-gray-200 rounded-md p-8 h-56 flex flex-col justify-center transition-transform duration-300 hover:border-primary hover:shadow-md hover:-translate-y-0.5">
             <div className="w-10 h-10 bg-[var(--color-primary)] text-white flex items-center justify-center rounded mb-4">
               <MapPin size={18} />
@@ -79,7 +76,6 @@ export default function ContactUsPage() {
           </div>
         </div>
 
-        {/* Form */}
         <form onSubmit={handleSubmit} className="space-y-6">
           {submitted && (
             <p className="text-[var(--color-primary-dark)] text-sm bg-[var(--color-surface)] px-4 py-3 rounded-md transition animate-fadeIn">

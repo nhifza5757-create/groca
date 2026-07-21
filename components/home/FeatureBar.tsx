@@ -9,9 +9,7 @@ const features = [
 
 export default function FeatureBar() {
   return (
-    // Real site pe ye ek floating rounded card hai (page ke andar margin ke
-    // sath), full-width flat bar nahi -- isliye px-6 wrapper aur rounded-xl
-    // add kiya.
+
     <section className="px-6 py-6">
       <div className="bg-[var(--color-primary)] rounded-xl px-6 py-8 max-w-6xl mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">

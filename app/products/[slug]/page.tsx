@@ -19,7 +19,7 @@ export default async function ProductDetailPage({
 
   return (
     <section className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-10">
-      {/* Breadcrumb -- chhoti text mobile pe, wrap ho sakti hai */}
+      
       <nav className="text-xs sm:text-sm text-gray-500 mb-4 sm:mb-6 flex flex-wrap items-center gap-x-2">
         <Link href="/" className="hover:underline active:underline">Home</Link>
         <span>/</span>
@@ -29,7 +29,7 @@ export default async function ProductDetailPage({
       </nav>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
-        {/* Image height chhoti screens pe kam, badi screens pe pehle jaisi */}
+       
         <div className="relative w-full h-72 sm:h-80 md:h-96 bg-gray-50 rounded-lg overflow-hidden">
           <Image
             src={product.image}

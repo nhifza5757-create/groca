@@ -79,7 +79,6 @@ export default function Testimonials() {
           </div>
         </div>
 
-        {/* Arrows — hover/tap pe orange ho jaate hain */}
         <button
           onClick={goPrev}
           aria-label="Previous testimonial"
@@ -96,7 +95,6 @@ export default function Testimonials() {
         </button>
       </div>
 
-      {/* Dots */}
       <div className="flex justify-center gap-2 mt-6">
         {reviews.map((_, i) => (
           <button
