@@ -19,7 +19,7 @@ export default function LoginPage() {
 
     const result = login(email, password);
     if (!result.success) {
-      setError(result.error || "Login nahi ho saka.");
+      setError(result.error || "Unable to log in.");
       return;
     }
     router.push("/");

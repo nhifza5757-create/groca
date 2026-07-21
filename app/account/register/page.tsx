@@ -19,13 +19,13 @@ export default function RegisterPage() {
     setError("");
 
     if (password.length < 4) {
-      setError("Password kam se kam 4 characters ka hona chahiye.");
+      setError("Password must be at least 4 characters long.");
       return;
     }
 
     const result = register(name, email, password);
     if (!result.success) {
-      setError(result.error || "Account nahi ban saka.");
+      setError(result.error ||"Unable to create account." );
       return;
     }
     router.push("/");
