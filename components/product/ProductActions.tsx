@@ -43,7 +43,20 @@ export default function ProductActions({ product }: { product: Product }) {
       <button
         disabled={!product.inStock}
         onClick={handleAddToCart}
-        className="bg-green-700 text-white px-8 py-3 rounded-lg hover:bg-green-800 transition disabled:bg-gray-300 disabled:cursor-not-allowed w-full md:w-auto"
+     className="
+w-full
+py-4
+rounded-full
+bg-lime-500
+text-white
+text-lg
+font-semibold
+transition-all
+duration-300
+hover:bg-orange-500
+disabled:bg-gray-300
+disabled:cursor-not-allowed
+"
       >
         {product.inStock ? "Add to Cart" : "Sold Out"}
       </button>

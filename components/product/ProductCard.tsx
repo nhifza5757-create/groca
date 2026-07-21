@@ -23,16 +23,11 @@ export default function ProductCard({ product }: ProductCardProps) {
     ? Math.min(99, Math.floor(((product.oldPrice - product.price) / product.oldPrice) * 100))
     : null;
 
-  // Agar product.hoverImage diya hai to hover pe wo photo dikhegi (groca.myshopify.com jaisa
-  // "Special Products" swap effect). Nahi diya to same image thoda zoom hogi — clean fallback,
-  // kyunke abhi har product ki 2nd photo available nahi hai.
   const hasHoverImage = Boolean(product.hoverImage);
 
   return (
-    // Real site jaisa compact card: tight padding, chhota image, seedha
-    // (non-italic) bold title, chhota pill button -- lime green hover border.
-    <div className="border border-gray-200 rounded-lg p-4 flex flex-col items-center text-center hover:border-lime-400 transition-colors duration-300 relative max-w-[240px] w-full mx-auto">
-      {/* Badges */}
+    // border-primary pe hover -- pehle lime-400 tha, ab brand green use ho raha hai
+    <div className="border border-gray-200 rounded-lg p-4 flex flex-col items-center text-center hover:border-[var(--color-primary)] transition-colors duration-300 relative w-full h-full mx-auto">
       {!product.inStock && (
         <span className="absolute top-2 left-2 bg-[var(--color-accent-red)] text-white text-[10px] font-semibold px-1.5 py-0.5 rounded z-10">
           Sold Out
@@ -45,34 +40,34 @@ export default function ProductCard({ product }: ProductCardProps) {
       )}
 
       <Link href={`/products/${product.slug}`} className="w-full group">
-        <div className="relative w-full h-48 mb-3 overflow-hidden">
-          {/* Base image */}
+        <div className="relative w-full h-32 sm:h-40 md:h-48 mb-3 overflow-hidden">
           <Image
             src={product.image}
             alt={product.name}
             fill
+            sizes="(max-width: 640px) 45vw, (max-width: 768px) 30vw, 20vw"
             className={`object-contain transition-all duration-300 ${
-              hasHoverImage
-                ? "group-hover:opacity-0"
-                : "group-hover:scale-110"
+              hasHoverImage ? "group-hover:opacity-0" : "group-hover:scale-110"
             }`}
           />
 
-          {/* Hover-swap image (only renders if product has a second photo) */}
           {hasHoverImage && (
             <Image
               src={product.hoverImage as string}
               alt={product.name}
               fill
+              sizes="(max-width: 640px) 45vw, (max-width: 768px) 30vw, 20vw"
               className="object-contain absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             />
           )}
 
-          {/* Hover icons */}
-          <div className="absolute inset-0 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity z-10">
+          {/* Icons: desktop pe hover se dikhte hain, mobile pe hamesha visible
+              rahte hain (touch devices pe hover nahi hota, is liye
+              opacity-100 default + md:opacity-0 md:group-hover:opacity-100) */}
+          <div className="absolute inset-0 flex items-center justify-center gap-2 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity z-10">
             <button
               type="button"
-              className="bg-black text-white rounded-full p-1.5 hover:bg-gray-800"
+              className="bg-black/70 text-white rounded-full p-1.5 hover:bg-[var(--color-primary)] active:bg-[var(--color-primary)] transition-colors"
               aria-label="Quick view"
             >
               <Search size={14} />
@@ -83,19 +78,22 @@ export default function ProductCard({ product }: ProductCardProps) {
                 e.preventDefault();
                 addToWishlist(product);
               }}
-              className="bg-black text-white rounded-full p-1.5 hover:bg-gray-800"
+              className={`rounded-full p-1.5 transition-colors ${
+                inWishlist
+                  ? "bg-[var(--color-primary)] text-white"
+                  : "bg-black/70 text-white hover:bg-[var(--color-primary)] active:bg-[var(--color-primary)]"
+              }`}
               aria-label="Add to wishlist"
             >
               <Heart
                 size={14}
-                className={inWishlist ? "fill-red-500 text-red-500" : ""}
+                className={inWishlist ? "fill-[var(--color-accent-red)] text-[var(--color-accent-red)]" : ""}
               />
             </button>
           </div>
         </div>
-        {/* font-sans se explicit non-italic seedha font -- pehle font-body
-            variable italic-jaisi dikh rahi thi */}
-        <h3 className="text-sm font-semibold text-gray-900 font-sans not-italic mb-1 line-clamp-1">
+
+        <h3 className="text-sm font-semibold text-gray-900 font-sans not-italic mb-1 line-clamp-2 min-h-[2.5rem] flex items-center justify-center">
           {product.name}
         </h3>
       </Link>
@@ -118,13 +116,16 @@ export default function ProductCard({ product }: ProductCardProps) {
         )}
       </div>
 
-      <Button
-        size="sm"
-        disabled={!product.inStock}
-        onClick={() => addToCart(product)}
-      >
-        {product.inStock ? "Add to Cart" : "Sold Out"}
-      </Button>
+      <div className="w-full mt-auto">
+        <Button
+          size="sm"
+          disabled={!product.inStock}
+          onClick={() => addToCart(product)}
+          className="w-full whitespace-nowrap"
+        >
+          {product.inStock ? "Add to Cart" : "Sold Out"}
+        </Button>
+      </div>
     </div>
   );
 }

@@ -38,12 +38,13 @@ export default function PartnerLogos() {
             href="/collections"
             className="relative w-full h-32 block hover:opacity-80 transition-opacity"
           >
-            <Image
-              src={logo.image}
-              alt={logo.title}
-              fill
-              className="object-contain"
-            />
+           <Image
+  src={logo.image}
+  alt={logo.title}
+  fill
+  sizes="(max-width: 768px) 50vw, 25vw"
+  className="object-contain"
+/>
           </Link>
         ))}
       </div>

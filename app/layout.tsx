@@ -11,6 +11,7 @@ import { WishlistProvider } from "@/hooks/WishlistContext";
 import { CurrencyProvider } from "@/hooks/CurrencyContext";
 import { LanguageProvider } from "@/hooks/LanguageContext";
 import { AuthProvider } from "@/hooks/AuthContext";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 
 const lemonada = Lemonada({
   variable: "--font-heading",
@@ -55,6 +56,7 @@ export default function RootLayout({
             </AuthProvider>
           </CurrencyProvider>
         </LanguageProvider>
+           <ScrollToTop />
       </body>
     </html>
   );
