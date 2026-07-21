@@ -33,7 +33,9 @@ export default function ScrollToTop() {
       shadow-lg
       transition-all duration-300
       hover:bg-orange-500
+      active:bg-orange-500
       hover:scale-110
+      active:scale-110
       ${
         showButton
           ? "opacity-100 translate-y-0"

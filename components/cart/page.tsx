@@ -15,8 +15,6 @@ export default function CartPage() {
   const { formatPrice } = useCurrency();
   const [notes, setNotes] = useState("");
 
-  // "You might also like" -- cart mein na hone waale products se kuch dikhate
-  // hain, jaisa real site ke cart page ke neeche hota hai.
   const suggestions = products
     .filter((p) => !items.some((item) => item.id === p.id))
     .slice(0, 4);
@@ -28,7 +26,9 @@ export default function CartPage() {
         <p className="text-gray-600 mb-8">Your cart is currently empty.</p>
         <Link
           href="/collections"
-          className="inline-block bg-primary text-white px-6 py-3 rounded-full hover:bg-orange-600 transition"
+          className="inline-block bg-primary text-white px-6 py-3 rounded-full 
+                     hover:bg-orange-600 hover:shadow-md hover:scale-105 
+                     transition-transform transition-colors duration-300"
         >
           Continue Shopping
         </Link>
@@ -38,12 +38,12 @@ export default function CartPage() {
 
   return (
     <section className="max-w-4xl mx-auto px-6 py-16">
-      {/* Header -- italic bold "Your cart" + "Continue shopping" link */}
+      {/* Header */}
       <div className="mb-8">
         <h1 className="text-3xl font-serif italic font-bold mb-1">Your cart</h1>
         <Link
           href="/collections"
-          className="text-primary text-sm hover:underline"
+          className="text-primary text-sm hover:underline transition-colors"
         >
           Continue shopping
         </Link>
@@ -60,15 +60,17 @@ export default function CartPage() {
         {items.map((item) => (
           <div
             key={item.id}
-            className="grid grid-cols-[auto_1fr] sm:grid-cols-[1fr_auto_auto] gap-4 items-center py-5 border-t"
+            className="grid grid-cols-[auto_1fr] sm:grid-cols-[1fr_auto_auto] gap-4 items-center py-5 border-t 
+                       transition-transform duration-300 hover:shadow-sm hover:-translate-y-0.5 rounded-md"
           >
             <div className="flex items-center gap-4 col-span-2 sm:col-span-1">
-              <div className="relative w-16 h-16 shrink-0 bg-[var(--color-surface)] rounded-md">
+              <div className="relative w-16 h-16 shrink-0 bg-[var(--color-surface)] rounded-md overflow-hidden">
                 <Image
                   src={item.image}
                   alt={item.name}
                   fill
-                  className="object-contain p-1"
+                  className="object-contain p-1 transition-transform duration-300 hover:scale-105"
+                  sizes="64px"
                 />
               </div>
               <div>
@@ -80,7 +82,7 @@ export default function CartPage() {
             <div className="flex items-center gap-2 col-span-2 sm:col-span-1 sm:justify-self-start">
               <button
                 onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                className="border rounded p-1 hover:bg-[var(--color-surface)]"
+                className="border rounded p-1 hover:bg-[var(--color-surface)] hover:shadow-sm transition"
                 aria-label="Decrease quantity"
               >
                 <Minus size={12} />
@@ -88,7 +90,7 @@ export default function CartPage() {
               <span className="text-sm w-5 text-center">{item.quantity}</span>
               <button
                 onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                className="border rounded p-1 hover:bg-[var(--color-surface)]"
+                className="border rounded p-1 hover:bg-[var(--color-surface)] hover:shadow-sm transition"
                 aria-label="Increase quantity"
               >
                 <Plus size={12} />
@@ -96,7 +98,9 @@ export default function CartPage() {
               <button
                 onClick={() => removeFromCart(item.id)}
                 aria-label="Remove item"
-                className="ml-2 bg-primary text-white rounded-full p-1.5 hover:bg-orange-600 transition"
+                className="ml-2 bg-primary text-white rounded-full p-1.5 
+                           hover:bg-orange-600 hover:shadow-md hover:scale-105 
+                           transition-transform transition-colors duration-300"
               >
                 <Trash2 size={14} />
               </button>
@@ -119,7 +123,7 @@ export default function CartPage() {
             value={notes}
             onChange={(e) => setNotes(e.target.value)}
             rows={3}
-            className="w-full border rounded p-2 text-sm resize-none"
+            className="w-full border rounded p-2 text-sm resize-none hover:border-primary focus:border-primary transition-colors"
           />
         </div>
 
@@ -131,7 +135,9 @@ export default function CartPage() {
           <p className="text-xs text-gray-400 mb-4">
             Taxes and shipping calculated at checkout
           </p>
-          <Button className="w-full">Check Out</Button>
+          <Button className="w-full hover:bg-orange-600 hover:shadow-md hover:scale-105 transition-transform transition-colors duration-300">
+            Check Out
+          </Button>
         </div>
       </div>
 

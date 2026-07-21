@@ -114,7 +114,7 @@ export default function HeroBanner() {
               )}
               <Link
                 href="/collections"
-                className="inline-block bg-black text-white px-6 py-3 rounded-full hover:bg-red-600 transition"
+                className="inline-block bg-black text-white px-6 py-3 rounded-full hover:bg-red-600 active:bg-red-600 transition-colors"
               >
                 {slide.button}
               </Link>
@@ -132,10 +132,10 @@ export default function HeroBanner() {
             <p className="text-gray-600 mb-6">{subtitleMain}</p>
             <Link
               href="/collections"
-              className={`inline-block text-white px-6 py-3 rounded-full transition ${
+              className={`inline-block text-white px-6 py-3 rounded-full transition-colors ${
                 cfg.buttonStyle === "pill-orange"
-                  ? "bg-orange-600 hover:bg-black"
-                  : "bg-[var(--color-primary)] hover:bg-orange-600"
+                  ? "bg-orange-600 hover:bg-black active:bg-black"
+                  : "bg-[var(--color-primary)] hover:bg-orange-600 active:bg-orange-600"
               }`}
             >
               {slide.button}
@@ -147,14 +147,14 @@ export default function HeroBanner() {
       <button
         onClick={goPrev}
         aria-label="Previous slide"
-        className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-accent-orange hover:text-white rounded-full p-2 shadow z-10 transition-colors"
+        className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-accent-orange active:bg-accent-orange hover:text-white active:text-white rounded-full p-2 shadow z-10 transition-colors"
       >
         <ChevronLeft size={20} />
       </button>
       <button
         onClick={goNext}
         aria-label="Next slide"
-        className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-accent-orange hover:text-white rounded-full p-2 shadow z-10 transition-colors"
+        className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-accent-orange active:bg-accent-orange hover:text-white active:text-white rounded-full p-2 shadow z-10 transition-colors"
       >
         <ChevronRight size={20} />
       </button>

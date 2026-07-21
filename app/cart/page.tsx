@@ -15,8 +15,6 @@ export default function CartPage() {
   const { formatPrice } = useCurrency();
   const [notes, setNotes] = useState("");
 
-  // "You might also like" -- cart mein na hone waale products se kuch dikhate
-  // hain, jaisa real site ke cart page ke neeche hota hai.
   const suggestions = products
     .filter((p) => !items.some((item) => item.id === p.id))
     .slice(0, 4);
@@ -38,7 +36,7 @@ export default function CartPage() {
 
   return (
     <section className="max-w-4xl mx-auto px-6 py-16">
-      {/* Header -- italic bold "Your cart" + "Continue shopping" link */}
+      {/* Header */}
       <div className="mb-8">
         <h1 className="text-3xl font-serif italic font-bold mb-1">Your cart</h1>
         <Link
@@ -60,15 +58,16 @@ export default function CartPage() {
         {items.map((item) => (
           <div
             key={item.id}
-            className="grid grid-cols-[auto_1fr] sm:grid-cols-[1fr_auto_auto] gap-4 items-center py-5 border-t"
+            className="grid grid-cols-[auto_1fr] sm:grid-cols-[1fr_auto_auto] gap-4 items-center py-5 border-t transition-transform duration-300 hover:shadow-md hover:-translate-y-1"
           >
             <div className="flex items-center gap-4 col-span-2 sm:col-span-1">
-              <div className="relative w-16 h-16 shrink-0 bg-[var(--color-surface)] rounded-md">
+              <div className="relative w-16 h-16 shrink-0 bg-[var(--color-surface)] rounded-md overflow-hidden">
                 <Image
                   src={item.image}
                   alt={item.name}
                   fill
-                  className="object-contain p-1"
+                  className="object-contain p-1 transition-transform duration-300 hover:scale-105"
+                  sizes="64px"
                 />
               </div>
               <div>
@@ -80,7 +79,7 @@ export default function CartPage() {
             <div className="flex items-center gap-2 col-span-2 sm:col-span-1 sm:justify-self-start">
               <button
                 onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                className="border rounded p-1 hover:bg-[var(--color-surface)]"
+                className="border rounded p-1 hover:bg-[var(--color-surface)] transition"
                 aria-label="Decrease quantity"
               >
                 <Minus size={12} />
@@ -88,7 +87,7 @@ export default function CartPage() {
               <span className="text-sm w-5 text-center">{item.quantity}</span>
               <button
                 onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                className="border rounded p-1 hover:bg-[var(--color-surface)]"
+                className="border rounded p-1 hover:bg-[var(--color-surface)] transition"
                 aria-label="Increase quantity"
               >
                 <Plus size={12} />

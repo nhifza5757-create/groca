@@ -29,14 +29,14 @@ export default function LatestBlog() {
                 {b.author} · {b.date}
               </p>
               <Link href={`/blogs/${b.slug}`}>
-                <h3 className="font-semibold mb-2 hover:text-[var(--color-primary-dark)] transition-colors">
+                <h3 className="font-semibold mb-2 hover:text-[var(--color-primary-dark)] active:text-[var(--color-primary-dark)] transition-colors">
                   {b.title}
                 </h3>
               </Link>
               <p className="text-sm text-gray-600 mb-4">{b.excerpt}</p>
               <Link
                 href={`/blogs/${b.slug}`}
-                className="inline-block bg-[var(--color-primary)] hover:bg-[var(--color-accent-orange)] text-white text-sm font-medium px-5 py-2 rounded-full transition-colors duration-300"
+                className="inline-block bg-[var(--color-primary)] hover:bg-[var(--color-accent-orange)] active:bg-[var(--color-accent-orange)] text-white text-sm font-medium px-5 py-2 rounded-full transition-colors duration-300"
               >
                 Read More
               </Link>

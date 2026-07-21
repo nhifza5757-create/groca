@@ -99,13 +99,19 @@ export default function BlogComments({ slug }: BlogCommentsProps) {
     setError("");
   };
 
+  const inputClass =
+    "border border-primary/30 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary hover:border-primary transition-colors";
+
   return (
     <section className="mt-12 border-t pt-8">
       <h2 className="text-xl font-bold mb-6">{comments.length} Comments</h2>
 
       <div className="space-y-4 mb-10">
         {comments.map((c) => (
-          <div key={c.id} className="border border-primary/30 rounded-lg p-4">
+          <div
+            key={c.id}
+            className="border border-primary/30 rounded-lg p-4 transition-transform duration-300 hover:shadow-md hover:-translate-y-0.5"
+          >
             <p className="text-gray-700 mb-3">{c.text}</p>
             <p className="text-xs text-gray-400">
               <span className="font-medium">{c.name}</span> · {c.date}
@@ -123,14 +129,14 @@ export default function BlogComments({ slug }: BlogCommentsProps) {
             placeholder="Name *"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="border border-primary/30 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary"
+            className={inputClass}
           />
           <input
             type="email"
             placeholder="Email *"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="border border-primary/30 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary"
+            className={inputClass}
           />
         </div>
         <textarea
@@ -138,14 +144,16 @@ export default function BlogComments({ slug }: BlogCommentsProps) {
           value={text}
           onChange={(e) => setText(e.target.value)}
           rows={4}
-          className="w-full border border-primary/30 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary"
+          className="w-full border border-primary/30 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-primary hover:border-primary transition-colors"
         />
 
         {error && <p className="text-[var(--color-accent-red)] text-sm">{error}</p>}
 
         <button
           type="submit"
-          className="bg-primary text-white px-6 py-3 rounded-full hover:bg-accent-orange transition-colors duration-300"
+          className="bg-primary text-white px-6 py-3 rounded-full 
+                     hover:bg-orange-600 hover:shadow-md hover:scale-105 
+                     transition-transform transition-colors duration-300"
         >
           Post Comment
         </button>

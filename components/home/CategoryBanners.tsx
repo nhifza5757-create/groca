@@ -34,9 +34,9 @@ export default function CategoryBanners() {
             />
           </div>
 
-          {/* Colored panel — hover pe left ki taraf expand hota hai */}
+          {/* Colored panel — hover/tap pe left ki taraf expand hota hai */}
           <div
-            className={`absolute inset-y-0 right-0 ${cat.bg} w-[42%] group-hover:w-[46%] rounded-l-full transition-all duration-300 ease-out flex items-center`}
+            className={`absolute inset-y-0 right-0 ${cat.bg} w-[42%] group-hover:w-[46%] group-active:w-[46%] rounded-l-full transition-all duration-300 ease-out flex items-center`}
           >
             <div className="pl-6 pr-4 sm:pl-10 sm:pr-6">
               <h3 className="font-heading italic text-lg sm:text-2xl font-bold mb-1">{cat.name}</h3>
@@ -44,7 +44,7 @@ export default function CategoryBanners() {
                 <span className="font-bold">100%</span> {cat.tagline}
               </p>
               <Link href="/collections">
-                <button className="bg-accent-orange text-white px-4 py-1.5 sm:px-5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold hover:bg-primary transition-colors duration-300 whitespace-nowrap">
+                <button className="bg-accent-orange text-white px-4 py-1.5 sm:px-5 sm:py-2 rounded-full text-xs sm:text-sm font-semibold hover:bg-primary active:bg-primary transition-colors duration-300 whitespace-nowrap">
                   Buy Now
                 </button>
               </Link>

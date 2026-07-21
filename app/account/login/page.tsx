@@ -25,6 +25,9 @@ export default function LoginPage() {
     router.push("/");
   };
 
+  const inputClass =
+    "w-full border border-gray-300 rounded-md px-4 py-2.5 text-sm bg-white hover:border-primary focus:border-primary focus:outline-none transition-colors";
+
   return (
     <section>
       <div className="bg-primary py-6 text-center">
@@ -38,7 +41,7 @@ export default function LoginPage() {
       </div>
 
       <div className="max-w-md mx-auto px-6 py-16">
-        <div className="bg-gray-50 border border-gray-200 rounded-lg p-8">
+        <div className="bg-gray-50 border border-gray-200 rounded-lg p-8 transition hover:shadow-lg hover:-translate-y-1">
           <h2 className="text-xl font-bold text-center mb-6">Login</h2>
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -48,7 +51,7 @@ export default function LoginPage() {
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full border border-gray-300 rounded-md px-4 py-2.5 text-sm bg-white hover:border-primary focus:border-primary focus:outline-none transition-colors"
+              className={inputClass}
             />
             <input
               type="password"
@@ -56,7 +59,7 @@ export default function LoginPage() {
               placeholder="Password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full border border-gray-300 rounded-md px-4 py-2.5 text-sm bg-white hover:border-primary focus:border-primary focus:outline-none transition-colors"
+              className={inputClass}
             />
 
             {error && (
@@ -65,14 +68,17 @@ export default function LoginPage() {
 
             <button
               type="submit"
-              className="w-full bg-primary text-white py-2.5 rounded-full font-medium hover:bg-accent-orange transition-colors"
+              className="w-full bg-primary text-white py-2.5 rounded-full font-medium hover:bg-orange-600 transition-colors hover:shadow-md"
             >
               Sign In
             </button>
           </form>
 
           <div className="flex items-center justify-between mt-5 text-sm">
-            <Link href="/account/register" className="text-gray-900 hover:text-primary transition-colors">
+            <Link
+              href="/account/register"
+              className="text-gray-900 hover:text-primary transition-colors hover:underline"
+            >
               Create account
             </Link>
           </div>

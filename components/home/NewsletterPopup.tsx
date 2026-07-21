@@ -39,7 +39,6 @@ export default function NewsletterPopup() {
       return;
     }
     setError("");
-    // TODO: wire up to your actual subscribe endpoint
     close();
   };
 
@@ -54,7 +53,6 @@ export default function NewsletterPopup() {
         className="relative max-w-2xl w-full rounded-xl overflow-hidden shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        {/* full-bleed background */}
         <div className="absolute inset-0">
           <Image
             src="/images/promo/newsletter-bg.jpeg"
@@ -68,9 +66,9 @@ export default function NewsletterPopup() {
         <button
           onClick={close}
           aria-label="Close"
-          className="absolute top-4 right-4 z-10 bg-white/90 hover:bg-[var(--color-accent-orange)] rounded-full p-1.5 shadow transition-colors group"
+          className="absolute top-4 right-4 z-10 bg-white/90 hover:bg-[var(--color-accent-orange)] active:bg-[var(--color-accent-orange)] rounded-full p-1.5 shadow transition-colors group"
         >
-          <X size={18} className="text-gray-700 group-hover:text-white transition-colors" />
+          <X size={18} className="text-gray-700 group-hover:text-white group-active:text-white transition-colors" />
         </button>
 
         <div className="relative px-8 py-14 md:py-16 text-center">
@@ -94,7 +92,7 @@ export default function NewsletterPopup() {
             />
             <button
               type="submit"
-              className="flex items-center justify-center gap-2 bg-[var(--color-primary)] hover:bg-[var(--color-accent-orange)] text-white px-6 py-3 rounded-lg text-sm font-semibold transition-colors whitespace-nowrap"
+              className="flex items-center justify-center gap-2 bg-[var(--color-primary)] hover:bg-[var(--color-accent-orange)] active:bg-[var(--color-accent-orange)] text-white px-6 py-3 rounded-lg text-sm font-semibold transition-colors whitespace-nowrap"
             >
               Subscribe <Send size={15} />
             </button>

@@ -23,7 +23,7 @@ export default function ProductActions({ product }: { product: Product }) {
           <button
             type="button"
             onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-            className="p-2 hover:bg-gray-100"
+            className="p-2 hover:bg-gray-100 active:bg-gray-100"
             aria-label="Decrease quantity"
           >
             <Minus size={16} />
@@ -32,7 +32,7 @@ export default function ProductActions({ product }: { product: Product }) {
           <button
             type="button"
             onClick={() => setQuantity((q) => q + 1)}
-            className="p-2 hover:bg-gray-100"
+            className="p-2 hover:bg-gray-100 active:bg-gray-100"
             aria-label="Increase quantity"
           >
             <Plus size={16} />
@@ -54,6 +54,7 @@ font-semibold
 transition-all
 duration-300
 hover:bg-orange-500
+active:bg-orange-500
 disabled:bg-gray-300
 disabled:cursor-not-allowed
 "

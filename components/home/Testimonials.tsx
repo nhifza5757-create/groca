@@ -40,7 +40,6 @@ export default function Testimonials() {
   const review = reviews[current];
 
   return (
-    // Real site ki tarah citrus-pattern background image, fallback color ke sath
     <section className="relative bg-[var(--color-testimonial-bg)] px-6 py-16 overflow-hidden">
       <Image
         src="/images/promo/testimonial-bg.png"
@@ -80,18 +79,18 @@ export default function Testimonials() {
           </div>
         </div>
 
-        {/* Arrows — hover pe orange ho jaate hain */}
+        {/* Arrows — hover/tap pe orange ho jaate hain */}
         <button
           onClick={goPrev}
           aria-label="Previous testimonial"
-          className="absolute left-[-1rem] md:left-[-3rem] top-1/2 -translate-y-1/2 bg-[var(--color-primary)] hover:bg-accent-orange text-white rounded-full p-2 shadow transition-colors"
+          className="absolute left-[-1rem] md:left-[-3rem] top-1/2 -translate-y-1/2 bg-[var(--color-primary)] hover:bg-accent-orange active:bg-accent-orange text-white rounded-full p-2 shadow transition-colors"
         >
           <ChevronLeft size={20} />
         </button>
         <button
           onClick={goNext}
           aria-label="Next testimonial"
-          className="absolute right-[-1rem] md:right-[-3rem] top-1/2 -translate-y-1/2 bg-[var(--color-primary)] hover:bg-accent-orange text-white rounded-full p-2 shadow transition-colors"
+          className="absolute right-[-1rem] md:right-[-3rem] top-1/2 -translate-y-1/2 bg-[var(--color-primary)] hover:bg-accent-orange active:bg-accent-orange text-white rounded-full p-2 shadow transition-colors"
         >
           <ChevronRight size={20} />
         </button>

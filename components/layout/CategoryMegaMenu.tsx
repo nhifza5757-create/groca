@@ -4,17 +4,12 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 
-/**
- * Assumed shape — adjust to match your data/collections.ts if it differs.
- * Each top-level category has a title + list of sub-items (name + slug).
- */
 export type CategoryColumn = {
   title: string;
   slug: string;
   items: { name: string; slug: string }[];
 };
 
-// Replace this with an import from "@/data/collections" once you confirm the shape there.
 export const CATEGORY_COLUMNS: CategoryColumn[] = [
   {
     title: "Fruits",
@@ -95,7 +90,7 @@ export default function CategoryMegaMenu() {
       </button>
 
       {open && (
-        <div className="absolute z-30 mt-1 left-0 bg-white border border-gray-100 shadow-xl rounded-md p-6 grid grid-cols-4 gap-8 w-[860px]">
+        <div className="absolute z-30 mt-1 left-0 bg-white border border-gray-100 shadow-xl rounded-md p-4 sm:p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 w-[92vw] max-w-[860px]">
           {CATEGORY_COLUMNS.map((col) => (
             <div key={col.slug}>
               <div className="bg-[#8DC63F] text-white font-bold text-sm px-4 py-2.5 rounded-md mb-3">
@@ -107,7 +102,7 @@ export default function CategoryMegaMenu() {
                     <Link
                       href={`/collections/${col.slug}?item=${item.slug}`}
                       onClick={() => setOpen(false)}
-                      className="text-sm text-[#333] hover:text-[#8DC63F] flex items-center gap-1.5 transition-colors"
+                      className="text-sm text-[#333] hover:text-[#8DC63F] active:text-[#8DC63F] flex items-center gap-1.5 transition-colors"
                     >
                       <span className="text-[#8DC63F]">-</span> {item.name}
                     </Link>

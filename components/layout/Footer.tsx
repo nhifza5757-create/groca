@@ -34,7 +34,6 @@ function InstagramIcon() {
   );
 }
 
-// Real site jaisi colored payment badges (brand colors ke sath, real logos nahi)
 function PaymentBadge({ label, bg }: { label: string; bg: string }) {
   return (
     <span
@@ -72,7 +71,6 @@ const INFO_LINKS = [
 export default function Footer() {
   return (
     <footer className="relative text-gray-300 mt-auto overflow-hidden">
-      {/* Background image - halka food texture, halka dark overlay ke sath */}
       <div className="absolute inset-0">
         <Image
           src="/images/promo/footer-bg.png"
@@ -85,7 +83,6 @@ export default function Footer() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-4 gap-10">
-        {/* Logo + address */}
         <div>
           <Image
             src="/images/logo-full.png"
@@ -129,19 +126,19 @@ export default function Footer() {
 </ul>
 
  <div className="flex items-center gap-4 mt-5 text-white">
-  <a href="#" className="hover:text-[var(--color-primary)] transition-colors">
+  <a href="#" className="hover:text-[var(--color-primary)] active:text-[var(--color-primary)] transition-colors">
     <TwitterIcon />
   </a>
 
-  <a href="#" className="hover:text-[var(--color-primary)] transition-colors">
+  <a href="#" className="hover:text-[var(--color-primary)] active:text-[var(--color-primary)] transition-colors">
     <FacebookIcon />
   </a>
 
-  <a href="#" className="hover:text-[var(--color-primary)] transition-colors">
+  <a href="#" className="hover:text-[var(--color-primary)] active:text-[var(--color-primary)] transition-colors">
     <PinterestIcon />
   </a>
 
-  <a href="#" className="hover:text-[var(--color-primary)] transition-colors">
+  <a href="#" className="hover:text-[var(--color-primary)] active:text-[var(--color-primary)] transition-colors">
     <InstagramIcon />
   </a>
 </div>
@@ -185,7 +182,7 @@ function FooterColumn({
       <ul className="space-y-2 text-sm">
         {links.map((link) => (
           <li key={link.label}>
-            <Link href={link.href} className="hover:text-[var(--color-primary)] transition-colors">
+            <Link href={link.href} className="hover:text-[var(--color-primary)] active:text-[var(--color-primary)] transition-colors">
               {link.label}
             </Link>
           </li>

@@ -26,8 +26,8 @@ export default function ProductCard({ product }: ProductCardProps) {
   const hasHoverImage = Boolean(product.hoverImage);
 
   return (
-    // border-primary pe hover -- pehle lime-400 tha, ab brand green use ho raha hai
-    <div className="border border-gray-200 rounded-lg p-4 flex flex-col items-center text-center hover:border-[var(--color-primary)] transition-colors duration-300 relative w-full h-full mx-auto">
+    // border-primary pe hover/tap dono -- active: mobile ke liye add kiya
+    <div className="border border-gray-200 rounded-lg p-4 flex flex-col items-center text-center hover:border-[var(--color-primary)] active:border-[var(--color-primary)] transition-colors duration-300 relative w-full h-full mx-auto">
       {!product.inStock && (
         <span className="absolute top-2 left-2 bg-[var(--color-accent-red)] text-white text-[10px] font-semibold px-1.5 py-0.5 rounded z-10">
           Sold Out
@@ -39,7 +39,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         </span>
       )}
 
-      <Link href={`/products/${product.slug}`} className="w-full group">
+      <Link href={`/products/${product.slug}`} className="w-full group touch-manipulation">
         <div className="relative w-full h-32 sm:h-40 md:h-48 mb-3 overflow-hidden">
           <Image
             src={product.image}
@@ -47,7 +47,9 @@ export default function ProductCard({ product }: ProductCardProps) {
             fill
             sizes="(max-width: 640px) 45vw, (max-width: 768px) 30vw, 20vw"
             className={`object-contain transition-all duration-300 ${
-              hasHoverImage ? "group-hover:opacity-0" : "group-hover:scale-110"
+              hasHoverImage
+                ? "group-hover:opacity-0 group-active:opacity-0"
+                : "group-hover:scale-110 group-active:scale-110"
             }`}
           />
 
@@ -57,7 +59,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               alt={product.name}
               fill
               sizes="(max-width: 640px) 45vw, (max-width: 768px) 30vw, 20vw"
-              className="object-contain absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              className="object-contain absolute inset-0 opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300"
             />
           )}
 

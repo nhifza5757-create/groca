@@ -38,7 +38,8 @@ function SpecialProductCard({ product }: { product: (typeof products)[number] })
     : null;
 
   return (
-    <div className="group border border-gray-200 rounded-lg p-4 flex items-center gap-4 relative h-full hover:border-[var(--color-primary)] transition-colors duration-300">
+    // active: add kiya -- border ab mobile tap pe bhi green hoga
+    <div className="group border border-gray-200 rounded-lg p-4 flex items-center gap-4 relative h-full hover:border-[var(--color-primary)] active:border-[var(--color-primary)] transition-colors duration-300 touch-manipulation">
       {(!product.inStock || (discountPercent && discountPercent > 0)) && (
         <span className="absolute top-3 left-3 bg-[var(--color-accent-red)] text-white text-[10px] font-semibold px-2 py-0.5 rounded z-10">
           {!product.inStock ? "Sold Out" : `Save ${discountPercent}%`}
@@ -116,7 +117,7 @@ function SpecialProductCard({ product }: { product: (typeof products)[number] })
           type="button"
           disabled={!product.inStock}
           onClick={() => addToCart(product)}
-          className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-[var(--color-primary)] text-white disabled:bg-gray-300 disabled:text-gray-500"
+          className="text-xs font-semibold px-3 py-1.5 rounded-lg bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] active:bg-[var(--color-primary-dark)] transition-colors disabled:bg-gray-300 disabled:text-gray-500"
         >
           {product.inStock ? "Add to Cart" : "Sold Out"}
         </button>

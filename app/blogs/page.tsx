@@ -12,14 +12,18 @@ export default function BlogsPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {blogPosts.map((b) => (
-          <div key={b.slug} className="border rounded-lg overflow-hidden">
+          <div
+            key={b.slug}
+            className="group border rounded-lg overflow-hidden transition-transform duration-300 hover:shadow-lg hover:-translate-y-1"
+          >
             <Link href={`/blogs/${b.slug}`}>
-              <div className="relative h-48 bg-gray-100">
+              <div className="relative h-48 bg-gray-100 overflow-hidden">
                 <Image
                   src={b.image}
                   alt={b.title}
                   fill
-                  className="object-cover"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
                 />
               </div>
             </Link>

@@ -56,10 +56,10 @@ export default function FaqsPage() {
           return (
             <div
               key={index}
-              className={`border-2 rounded-lg overflow-hidden transition-colors ${
+              className={`border-2 rounded-lg overflow-hidden transition-transform duration-300 ${
                 isOpen
-                  ? "border-lime-500"
-                  : "border-[var(--color-border-light)] hover:border-lime-400"
+                  ? "border-lime-500 shadow-md scale-[1.01]"
+                  : "border-[var(--color-border-light)] hover:border-lime-400 hover:shadow-sm hover:-translate-y-0.5"
               }`}
             >
               <button
@@ -70,13 +70,13 @@ export default function FaqsPage() {
                 {faq.question}
                 <ChevronDown
                   size={18}
-                  className={`shrink-0 transition-transform ${
+                  className={`shrink-0 transition-transform duration-300 ${
                     isOpen ? "rotate-180 text-[var(--color-primary-dark)]" : ""
                   }`}
                 />
               </button>
               {isOpen && (
-                <div className="px-5 pb-4 text-gray-600 text-sm">
+                <div className="px-5 pb-4 text-gray-600 text-sm animate-fadeIn">
                   {faq.answer}
                 </div>
               )}

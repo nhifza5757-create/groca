@@ -25,9 +25,9 @@ export default function Button({
   // Tailwind green-600 ki jagah — isse asli site ke shade se match karega.
   // Hover pe primary button ab orange ho jata hai.
   const variants = {
-    primary: "bg-[var(--color-primary)] text-white hover:bg-orange-600",
+    primary: "bg-[var(--color-primary)] text-white hover:bg-orange-600 active:bg-orange-600",
     outline:
-      "border border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-surface)]",
+      "border border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-surface)] active:bg-[var(--color-surface)]",
   };
 
   return (

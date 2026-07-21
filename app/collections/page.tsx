@@ -8,16 +8,17 @@ const categories = [
   { name: "Flour", slug: "flour", fallbackImage: "/images/categories/flour.jpg" },
   { name: "Fruits", slug: "fruits", fallbackImage: "/images/categories/fruits.jpg" },
   { name: "Meat", slug: "meats", fallbackImage: "/images/categories/meat.jpg" },
-  { name: "Milk", slug: "milk", fallbackImage: "/images/categories/milk.png" },
-  { name: "Sidebar Collection", slug: "sidebar-collection", fallbackImage: "/images/categories/sidebar-collection.png" },
-  { name: "Special Products", slug: "special-products", fallbackImage: "/images/categories/special-products.png" },
+  { name: "Milk", slug: "milk", fallbackImage: "/images/categories/milk.jpg" },
+  { name: "Sidebar Collection", slug: "sidebar-collection", fallbackImage: "/images/categories/sidebar-collection.jpg" },
+  { name: "Special Products", slug: "special-products", fallbackImage: "/images/categories/special-products.jpg" },
   { name: "Vegies", slug: "vegetables", fallbackImage: "/images/categories/vegies.jpg" },
 ];
 
 export default function CollectionsPage() {
   return (
     <section>
-   
+      {/* Green header banner -- real site jaisa: solid green bar, center
+          mein bold white "All Collections" heading */}
       <div className="bg-primary py-6 text-center">
         <h1 className="text-2xl font-bold text-white">All Collections</h1>
       </div>
@@ -28,23 +29,24 @@ export default function CollectionsPage() {
             const categoryProducts = products.filter(
               (p) => p.category === cat.slug
             );
-
+            // Product na ho tab bhi category ka apna fallback image dikhta hai
             const thumbnail = categoryProducts[0]?.image ?? cat.fallbackImage;
             const itemCount = categoryProducts.length;
 
             return (
               <div
                 key={cat.slug}
-                className="group flex flex-col items-center text-center border border-gray-200 rounded-lg p-4 transition-colors duration-300 hover:border-lime-400 max-w-[240px] w-full mx-auto"
+                className="group flex flex-col items-center text-center border border-gray-200 rounded-lg p-4 transition-colors duration-300 hover:border-lime-400 active:border-lime-400 max-w-[240px] w-full mx-auto"
               >
-                
+                {/* "group" parent hai -- hover karne par image zoom hoti hai
+                    aur puri card ka border green ho jata hai */}
                 <div className="relative w-full h-48 mb-4 overflow-hidden">
                   {thumbnail ? (
                     <Image
                       src={thumbnail}
                       alt={cat.name}
                       fill
-                      className="object-contain transition-transform duration-300 group-hover:scale-110"
+                      className="object-contain transition-transform duration-300 group-hover:scale-110 group-active:scale-110"
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-gray-400 text-sm">
@@ -60,7 +62,7 @@ export default function CollectionsPage() {
                 </p>
                 <Link
                   href={`/collections/${cat.slug}`}
-                  className="inline-block bg-primary text-white px-5 py-1.5 rounded-full text-sm font-medium hover:bg-orange-600 transition"
+                  className="inline-block bg-primary text-white px-5 py-1.5 rounded-full text-sm font-medium hover:bg-orange-600 active:bg-orange-600 transition"
                 >
                   Shop Now
                 </Link>

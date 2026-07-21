@@ -18,14 +18,11 @@ export default function Newsletter() {
       return;
     }
 
-    // Real backend nahi hai abhi, isliye sirf success dikha rahe hain
     setStatus("success");
     setEmail("");
   };
 
   return (
-    // Background image (cream + hand-drawn vegetable doodles) fill karti hai,
-    // basket image upar overlay hoti hai
     <section className="relative px-6 py-16 text-center overflow-visible">
       <Image
         src="/images/promo/newsletter-bg.jpeg"
@@ -35,7 +32,6 @@ export default function Newsletter() {
         aria-hidden="true"
       />
 
-      {/* Content ko bounded container mein rakha hai */}
       <div className="relative max-w-4xl mx-auto">
 
         <h2 className="text-2xl font-bold mb-6">Subscribe To Our Emails</h2>
@@ -56,7 +52,7 @@ export default function Newsletter() {
           />
           <button
             type="submit"
-            className="bg-[var(--color-primary)] text-white px-6 py-3 rounded-full hover:bg-[var(--color-accent-orange)] transition-colors duration-300 inline-flex items-center justify-center gap-2"
+            className="bg-[var(--color-primary)] text-white px-6 py-3 rounded-full hover:bg-[var(--color-accent-orange)] active:bg-[var(--color-accent-orange)] transition-colors duration-300 inline-flex items-center justify-center gap-2"
           >
             Subscribe <Send size={16} />
           </button>

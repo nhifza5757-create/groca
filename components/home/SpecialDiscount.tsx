@@ -24,7 +24,7 @@ export default function SpecialDiscount() {
               every order.
             </p>
             <Link href="/collections">
-              <button className="bg-[var(--color-primary)] text-white font-medium px-6 py-3 rounded-full hover:bg-accent-orange transition">
+              <button className="bg-[var(--color-primary)] text-white font-medium px-6 py-3 rounded-full hover:bg-accent-orange active:bg-accent-orange transition-colors">
                 Buy Now
               </button>
             </Link>
@@ -44,7 +44,7 @@ export default function SpecialDiscount() {
             every order.
           </p>
           <Link href="/collections">
-            <button className="bg-[var(--color-primary)] text-white font-medium px-6 py-3 rounded-full hover:bg-accent-orange transition">
+            <button className="bg-[var(--color-primary)] text-white font-medium px-6 py-3 rounded-full hover:bg-accent-orange active:bg-accent-orange transition-colors">
               Buy Now
             </button>
           </Link>

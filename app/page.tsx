@@ -14,23 +14,54 @@ import SectionHeading from "@/components/ui/SectionHeading";
 export default function Home() {
   return (
     <>
-      <HeroBanner />
-      <CategoryBanners />
+      <div className="transition-transform duration-500 hover:scale-[1.01]">
+        <HeroBanner />
+      </div>
+
+      <div className="transition-transform duration-500 hover:scale-[1.01]">
+        <CategoryBanners />
+      </div>
 
       <SectionHeading
         title="Our Products"
         subtitle="Fresh picks, handpicked for you every day"
       />
-      <CategoryIcons />
-      <FeaturedProducts />
 
-      <SpecialDiscount />
-      <SpecialProducts />
-      <Testimonials />
-      <LatestBlog />
-      <Newsletter />
-      <PartnerLogos />
-      <FeatureBar />
+      <div className="transition-transform duration-500 hover:scale-[1.01]">
+        <CategoryIcons />
+      </div>
+
+      <div className="transition-transform duration-500 hover:scale-[1.01]">
+        <FeaturedProducts />
+      </div>
+
+      <div className="transition-transform duration-500 hover:scale-[1.01]">
+        <SpecialDiscount />
+      </div>
+
+      <div className="transition-transform duration-500 hover:scale-[1.01]">
+        <SpecialProducts />
+      </div>
+
+      <div className="transition-transform duration-500 hover:scale-[1.01]">
+        <Testimonials />
+      </div>
+
+      <div className="transition-transform duration-500 hover:scale-[1.01]">
+        <LatestBlog />
+      </div>
+
+      <div className="transition-transform duration-500 hover:scale-[1.01]">
+        <Newsletter />
+      </div>
+
+      <div className="transition-transform duration-500 hover:scale-[1.01]">
+        <PartnerLogos />
+      </div>
+
+      <div className="transition-transform duration-500 hover:scale-[1.01]">
+        <FeatureBar />
+      </div>
     </>
   );
 }

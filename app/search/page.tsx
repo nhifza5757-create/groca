@@ -32,7 +32,12 @@ export default async function SearchPage({
 
       <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
         {results.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <div
+            key={product.id}
+            className="transition-transform duration-300 hover:scale-105 hover:shadow-md rounded-lg"
+          >
+            <ProductCard product={product} />
+          </div>
         ))}
       </div>
     </section>
