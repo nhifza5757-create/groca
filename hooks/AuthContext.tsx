@@ -53,7 +53,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const register = (name: string, email: string, password: string) => {
     const users = getRegisteredUsers();
     if (users[email]) {
-      return { success: false, error: "Is email se pehle hi account bana hua hai." };
+      return { success: false, error: "This email is already registered." };
     }
     users[email] = { name, password };
     localStorage.setItem(USERS_KEY, JSON.stringify(users));
@@ -68,7 +68,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const users = getRegisteredUsers();
     const record = users[email];
     if (!record || record.password !== password) {
-      return { success: false, error: "Email ya password galat hai." };
+      return { success: false, error: "Email or password is incorrect." };
     }
     const loggedInUser = { name: record.name, email };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(loggedInUser));
